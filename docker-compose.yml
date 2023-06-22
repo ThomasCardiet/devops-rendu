@@ -8,9 +8,7 @@ services:
       - PGID=1000
       - VERSION=latest
     volumes:
-      - /path/to/plexconfig:/config
-      - /path/to/plextranscode:/transcode
-      - /path/to/media:/data
+      - /root/volumes/plex:/downloads
   
   qbittorrent:
     image: linuxserver/qbittorrent
@@ -18,8 +16,8 @@ services:
       - PUID=1000
       - PGID=1000
     volumes:
-      - /path/to/qbittorrent/config:/config
-      - /path/to/qbittorrent/downloads:/downloads
+      - /root/volumes/qbittorrent:/downloads
+      - /root/volumes/qbittorrent:/config
     ports:
       - 8080:8080
       - 6881:6881
@@ -30,9 +28,8 @@ services:
       - PUID=1000
       - PGID=1000
     volumes:
-      - /path/to/sonarr/config:/config
-      - /path/to/tvshows:/tv
-      - /path/to/qbittorrent/downloads:/downloads
+      - /root/volumes/sonarr:/downloads
+      - /root/volumes/sonarr:/config
     ports:
       - 8989:8989
   
