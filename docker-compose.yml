@@ -44,4 +44,6 @@ services:
     volumes:
       - /path/to/bazarr/config:/config
       - /path/to/tvshows:/tv
-      - /path/to/movies
+      - /path/to/movies:/movies
+    ports:
+      - 6767:6767
