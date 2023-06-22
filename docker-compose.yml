@@ -4,40 +4,40 @@ services:
     image: plexinc/pms-docker:plexpass
     network_mode: host
     environment:
-      - PUID=1000
-      - PGID=1000
-      - VERSION=latest
+      PUID=1000
+      PGID=1000
+      VERSION=latest
     volumes:
-      - /root/volumes/plex:/downloads
-  
+      - ./downloads:/downloads
+
   qbittorrent:
     image: linuxserver/qbittorrent
     environment:
-      - PUID=1000
-      - PGID=1000
+      PUID=1000
+      PGID=1000
     volumes:
-      - /root/volumes/qbittorrent:/downloads
-      - /root/volumes/qbittorrent:/config
+      - ./qbittorent/config:/config
+      - ./downloads/downloads:/downloads
     ports:
       - 8080:8080
       - 6881:6881
-  
+
   sonarr:
     image: linuxserver/sonarr
     environment:
-      - PUID=1000
-      - PGID=1000
+      PUID=1000
+      PGID=1000
     volumes:
-      - /root/volumes/sonarr:/downloads
-      - /root/volumes/sonarr:/config
+      - ./sonaar:/config
+      - ./downloads:/downloads
     ports:
       - 8989:8989
-  
+
   bazarr:
     image: linuxserver/bazarr
     environment:
-      - PUID=1000
-      - PGID=1000
+      PUID=1000
+      PGID=1000
     volumes:
       - /path/to/bazarr/config:/config
       - /path/to/tvshows:/tv
