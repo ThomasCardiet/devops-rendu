@@ -16,4 +16,4 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.SSH_PORT }}
-          script: cd /var/www/devops-rendu && git pull origin main && docker-compose down && docker-compose up
+          script: cd /var/www/devops-rendu && git pull origin main && docker-compose down && docker-compose up -d
